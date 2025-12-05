@@ -1,0 +1,103 @@
+.search-coin {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e3e3e3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  font-size: 28px;
+  cursor: pointer;
+  outline: none;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: box-shadow 2s ease, transform 2s ease;
+}
+
+/* -------- LANDING ANIMATION (page load) ---------- */
+.landing {
+  animation: coin-landing 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes coin-landing {
+  0% {
+    transform: translateY(-200px) rotateX(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+  40% {
+    transform: translateY(20px) rotateX(540deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-10px) rotateX(720deg);
+  }
+  100% {
+    transform: translateY(0) rotateX(720deg);
+  }
+}
+
+/* -------- RISING ANIMATION (on click) ------------ */
+.rising {
+  animation: coin-rising 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes coin-rising {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+  }
+
+  10% {
+     transform: translateY(-75px) rotateX(270deg)  
+    }
+
+  20% {
+    transform: translateY(-100px) rotateX(450deg);
+  }
+
+  30% {
+    transform: translateY(-150px) rotateX(540deg);
+  }
+
+  40% {
+     transform: translateY(-175px) rotateX(720deg);
+
+      }
+
+    50% {
+    transform: translateY(-225px) rotateX(810deg);
+    }
+    
+  60% {
+    transform: translateY(-300px) rotateX(1080deg)
+}
+
+    70% {
+    transform: translateY(-250px) rotateX(1260deg);
+    }
+    80% {
+    transform: translateY(-175px) rotateX(1440deg);
+    }
+    90% {
+    transform: translateY(-100px) rotateX(1620deg);
+    }
+  100% {
+    transform: translateY(0) rotateX(1080deg);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------- */
+.search-coin.loading {
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+}
+
+/* Idle hover effect */
+.idle:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 20px rgba(0, 120, 255, 0.4);
+}

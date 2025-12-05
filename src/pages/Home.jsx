@@ -3,6 +3,8 @@ import Header from '../components/Header'
 import Modal from '../components/Modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Textbox from '../components/Textbox'
+import Searchbox from '../components/Searchbox'
+import CoinTossButton from '../components/SearchCoinButton'
 
 
 
@@ -12,9 +14,10 @@ const Home = () => {
     <div>
         <Header />
         <Textbox />
-      Home
+      
       <Modal />
-        
+        <Searchbox />
+        <CoinTossButton/>
       </div>
       
   )
