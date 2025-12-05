@@ -17,7 +17,6 @@ const Home = () => {
       
       <Modal />
         <Searchbox />
-        <CoinTossButton/>
       </div>
       
   )
