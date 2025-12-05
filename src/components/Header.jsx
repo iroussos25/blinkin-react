@@ -1,22 +1,26 @@
 import React from 'react'
 import blinkin from '../assets/blinkin-Photoroom.png';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Header = () => {
     return (
-    <nav>
-      <div className="navbar-left">
-         <img src={blinkin} alt="" />
+    <nav className='nav__container'>
+      <div className="navbar__left">
+         <img src={blinkin} alt="" className='logo'/>
               <h2 className='logo_text'>Blinkin</h2>
+      </div> 
     <div className="list__container">
         <ul className='nav__list'>
-            <li classname='nav__link'>Home</li>
-            <li classname='nav__link'>About</li>
-            <li classname='nav__item'>Services</li>
-            <li classname='nav__item'>Contact</li>
+            
+            <li className='nav__link link__hover-effect link__hover-effect--red'>Home</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red'>About</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red'>Services</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
         </ul>
+         <i className="fa-solid fa-bars"></i>
     </div>
-      </div> 
     </nav>
   )
 }
