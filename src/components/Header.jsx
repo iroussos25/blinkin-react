@@ -19,7 +19,8 @@ const Header = () => {
             <li className='nav__link link__hover-effect link__hover-effect--red'>Services</li>
             <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
         </ul>
-         <i className="fa-solid fa-bars"></i>
+         
+        
     </div>
     </nav>
   )

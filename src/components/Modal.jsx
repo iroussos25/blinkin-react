@@ -31,3 +31,4 @@ const Modal = () => {
 }
 
 export default Modal
+{/* <button className="btn__menu" aria-label="Open menu"><i className="fas fa-bars" /></button> */}
