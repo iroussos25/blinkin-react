@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
     return (
+        <div className="nav__background">
+
     <nav className='nav__container'>
       <div className="navbar__left">
          <img src={blinkin} alt="" className='logo'/>
@@ -23,6 +25,7 @@ const Header = () => {
         
     </div>
     </nav>
+        </div>
   )
 }
 

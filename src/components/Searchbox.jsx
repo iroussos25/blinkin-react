@@ -22,7 +22,7 @@ const Searchbox = () => {
     className='search__container'
     >
 
-      <form action="" class="search__bar" onSubmit={handleSubmit}>
+      <form action="" className="search__bar" onSubmit={handleSubmit}>
                     <input type="text" id="search__input" placeholder="Search for movies..."/>
                     
                         <SearchCoinButton />

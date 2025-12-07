@@ -5,18 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Textbox from '../components/Textbox'
 import Searchbox from '../components/Searchbox'
 import CoinTossButton from '../components/SearchCoinButton'
-
+import Footer from '../components/Footer'
+import movie_collage from '../assets/movie_collage.jpg'
 
 
 
 const Home = () => {
   return (
-    <div>
+    <div className='background'>
         <Header />
+    <div className="search__container">
+        
         <Textbox />
       
       <Modal />
         <Searchbox />
+    </div>
+        <Footer />
       </div>
       
   )
