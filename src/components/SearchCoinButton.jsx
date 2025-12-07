@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SearchCoinButton.css";
+import main from "./SearchFunction";
 
 export default function SearchCoinButton({ onSearch }) {
   const [animation, setAnimation] = useState("landing"); // landing | idle | rising
@@ -12,9 +13,11 @@ export default function SearchCoinButton({ onSearch }) {
   }, []);
 
   const handleClick = () => {
+    
     if (loading) return;
     setLoading(true);
     setAnimation("rising");
+    
 
     // simulate loading or call parent callback
     setTimeout(() => {
@@ -22,6 +25,7 @@ export default function SearchCoinButton({ onSearch }) {
       setAnimation("idle");
       onSearch && onSearch();
     }, 1400);
+      main();
   };
 
   return (
