@@ -16,6 +16,7 @@ body {
     background-color:#1e1d2b;
 }
 
+
 .nav__background, .background__footer{
     background-color: black;
 }
@@ -98,6 +99,7 @@ p {
 }
 
 .nav__container {
+  position: fixed;
 width: 100%;
 max-width: 1200px;
 padding: 0 24px;
@@ -106,6 +108,9 @@ justify-content: space-between;
 align-items: center;
 margin:0;
 background-color: black;
+}
+.nav__background {
+position: relative;
 }
 
 .logo {
@@ -121,7 +126,7 @@ background-color: black;
 
 .main__text {
     text-align: center;
-    margin-top: 20%;
+    margin-top: 5%;
     color: #5e2c2c;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 200px;
