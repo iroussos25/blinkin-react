@@ -1,9 +1,12 @@
 async function main() {
-  const buttonEl = document.querySelector('#submit__button');
+//   const buttonEl = document.querySelector('#submit__button');
   const searchInput = document.querySelector('#search__input');
-  
-  buttonEl.addEventListener('click', async function(event) {
-    event.preventDefault();
+  if (!searchInput) {
+    // console.error('Search input not found');
+    return
+  }
+//   buttonEl.addEventListener('click', async function(event) {
+//     event.preventDefault();
     
     const userInput = searchInput.value.trim();
     
@@ -13,48 +16,50 @@ async function main() {
     }
     
     // Store original button content
-    const originalContent = buttonEl.innerHTML;
+    // const originalContent = buttonEl.innerHTML;
     
-    // Show spinner and disable button
-    buttonEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    buttonEl.disabled = true;
-    buttonEl.style.opacity = '0.7';
+    // // Show spinner and disable button
+    // buttonEl.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    // buttonEl.disabled = true;
+    // buttonEl.style.opacity = '0.7';
     
     try {
       // Fetch movies from API
       const movies = await fetch(`http://www.omdbapi.com/?s=${userInput}&apikey=279e89f2`);
       const data = await movies.json();
+      console.log(data);
       
       // Update movie list
       const movieListEl = document.querySelector('.movie-list');
-      
-      if (data.Response === "True") {
+      if (movieListEl) {
+              if (data.Response === "True") {
         movieListEl.innerHTML = data.Search.map(movie => movieHTML(movie)).join('');
       } else {
         movieListEl.innerHTML = '<p style="text-align: center; color: white; padding: 20px;">No movies found. Try another search!</p>';
-      }
+      }}
       
-      // Keep spinner for 3 seconds total
-      setTimeout(() => {
-        buttonEl.innerHTML = originalContent;
-        buttonEl.disabled = false;
-        buttonEl.style.opacity = '1';
-      }, 3000);
+    //   // Keep spinner for 3 seconds total
+    //   setTimeout(() => {
+    //     buttonEl.innerHTML = originalContent;
+    //     buttonEl.disabled = false;
+    //     buttonEl.style.opacity = '1';
+    //   }, 3000);
       
     } catch (error) {
       console.error('Error fetching movies:', error);
       
-      // Restore button immediately on error
-      buttonEl.innerHTML = originalContent;
-      buttonEl.disabled = false;
-      buttonEl.style.opacity = '1';
+    //   // Restore button immediately on error
+    //   buttonEl.innerHTML = originalContent;
+    //   buttonEl.disabled = false;
+    //   buttonEl.style.opacity = '1';
       
       alert('Error fetching movies. Please try again.');
     }
-  });
-}
+  }
+
 
 function movieHTML(movie) {
+    
   return `
     <div class="movie-card__container">
       <div class="movie-card">
@@ -83,4 +88,4 @@ document.body.classList.remove ('menu--open')
 
 }
 
-export default main;
+// export default (main, openMenu, closeMenu, movieHTML)

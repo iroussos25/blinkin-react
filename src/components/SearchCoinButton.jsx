@@ -25,7 +25,7 @@ export default function SearchCoinButton({ onSearch }) {
       setAnimation("idle");
       onSearch && onSearch();
     }, 1400);
-      main();
+      // main();
   };
 
   return (

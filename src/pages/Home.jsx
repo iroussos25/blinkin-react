@@ -7,6 +7,7 @@ import Searchbox from '../components/Searchbox'
 import CoinTossButton from '../components/SearchCoinButton'
 import Footer from '../components/Footer'
 import movie_collage from '../assets/movie_collage.jpg'
+import Scrap from '../components/scrap'
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
       
       <Modal />
         <Searchbox />
+        <Scrap />
     </div>
         <Footer />
       </div>
