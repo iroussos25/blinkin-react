@@ -14,7 +14,7 @@ const Scrap = () => {
         await axios.get(`http://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
         setMovies(data.Search);
         setLoading(false);
-        console.log(data);
+        console.log(data.Search);
     }
 
     function onSearch() {
@@ -43,7 +43,7 @@ const Scrap = () => {
      {
     loading 
     ? new Array(10).fill(0).map((_, data) => (
-        <div className="movie" key={id}>
+        <div className="movie" key={data.id}>
     <div className="movie__title">
       <div className="movie__title--skeleton"></div>
     </div>
