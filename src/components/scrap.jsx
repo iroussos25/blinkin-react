@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const Scrap = () => {
     const { id } = useParams();
-    const [movies, setMovies] = useState(true);
+    const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [searchId, setSearchId] = useState(id || '');
 
@@ -12,7 +12,7 @@ const Scrap = () => {
         setLoading(true)
         const {data} =
         await axios.get(`http://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
-        setMovies(data);
+        setMovies(data.Search);
         setLoading(false);
         console.log(data);
     }
@@ -42,8 +42,8 @@ const Scrap = () => {
 
      {
     loading 
-    ? new Array(10).fill(0).map((_, index) => (
-        <div className="movie" key={index}>
+    ? new Array(10).fill(0).map((_, data) => (
+        <div className="movie" key={id}>
     <div className="movie__title">
       <div className="movie__title--skeleton"></div>
     </div>
@@ -51,15 +51,15 @@ const Scrap = () => {
       <p className="movie__body--skeleton"></p>
     </div>
   </div>
-    )): (
+    )): 
 
-         movies.map((movie)=>(
+        movies.map((movie)=>(
       <div className="movie" key={movie.id}>
     <div className="post__title">{movie.title}</div>
     <p className="post__body">{movie.body}</p>
   </div>
       ))
-    )
+    
   }
     {/* <div className='movie__search'>
       <Link to={'/'}>
