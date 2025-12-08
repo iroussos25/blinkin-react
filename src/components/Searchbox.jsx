@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react'
 import SearchCoinButton from './SearchCoinButton'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import blinkin from '../assets/blinkin-Photoroom.png';
+ 
 
 const Searchbox = () => {
     const { id } = useParams();
@@ -19,8 +21,10 @@ const Searchbox = () => {
         console.log (data);
     }
     function onSearch() {
+
         fetchMovies(searchId)
         console.log()
+        
     }
     function onSearchKeyPress(key) {
         if (key === 'Enter') {
@@ -31,6 +35,19 @@ const Searchbox = () => {
         
         fetchMovies();
     }, []);
+    return (
+        <div className="movie-card__container">
+            <div className="movie-card">
+
+                <h3>Title</h3>
+                <img src={blinkin} alt="Movie Title" />
+                <p><b>Type:</b> Movie Type</p>
+                <p><b>Year:</b> Movie Year</p>
+                <p className='imdb__link'><b>imdbID:</b>Movie imdbID <a href=''></a>
+                </p>
+            </div>
+        </div>
+    )
 
     function handleSubmit(event) {
         event.preventDefault(); // stop the page refresh
