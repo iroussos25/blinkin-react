@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import SearchCoinButton from './SearchCoinButton'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ const Searchbox = () => {
     const { id } = useParams();
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [searchId, setSearchId] = useState(''); 
+    const [searchId, setSearchId] = useState( ''); 
     
     async function fetchMovies(searchId) {
         setLoading(true)
@@ -18,10 +18,23 @@ const Searchbox = () => {
         setLoading(false);
         console.log (data);
     }
-    
+    function onSearch() {
+        fetchMovies(searchId)
+        console.log()
+    }
+    function onSearchKeyPress(key) {
+        if (key === 'Enter') {
+            onSearch();
+        }
+    }
+    useEffect(() => {
+        
+        fetchMovies();
+    }, []);
+
     function handleSubmit(event) {
         event.preventDefault(); // stop the page refresh
-        fetchMovies({searchId});
+        fetchMovies(searchId);
         // run your animation delay here if you want
         
         setTimeout(() => {
@@ -39,7 +52,7 @@ const Searchbox = () => {
         >
 
       <form action="" className="search__bar" onSubmit={handleSubmit}>
-                    <input type="text" id="search__input" placeholder="Search for movies..." />
+                    <input type="text" id="search__input" placeholder="Search for movies..." value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}/>
                     
                         <SearchCoinButton />
                     
