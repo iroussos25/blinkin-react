@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import React, {useState} from 'react'
 import SearchCoinButton from './SearchCoinButton'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const Searchbox = () => {
     function handleSubmit(event) {
