@@ -3,22 +3,24 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const Scrap = () => {
+    
     const { id } = useParams();
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [searchId, setSearchId] = useState(id || '');
 
-    async function fetchMovies(userId) {
+    async function fetchMovies(searchId) {
         setLoading(true)
         const {data} =
         await axios.get(`http://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
-        setMovies(data.Search);
+        setMovies(data.Search || []);
         setLoading(false);
-        console.log(data.Search);
+        console.log(data);
     }
 
     function onSearch() {
         fetchMovies(searchId)
+        console.log()
     }
     function onSearchKeyPress(key) {
         if (key === 'Enter') {
@@ -32,12 +34,11 @@ const Scrap = () => {
 
   return (
     <>
-    <div className="movie-card">
-          <label className="movie__search--label">Search by Id</label>
+    <div className="search__input">
       <input
-        type="number" value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}
+        type='search' value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}
       />
-      <button onClick={() => onSearch()}>Enter</button> 
+      <button className='search__bar button' onClick={() => onSearch()}>Enter</button> 
      </div>
 
      {
