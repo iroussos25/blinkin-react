@@ -21,7 +21,6 @@ const Home = () => {
       
       <Modal />
         <Searchbox />
-        <Scrap />
     </div>
         <Footer />
       </div>

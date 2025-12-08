@@ -8,7 +8,7 @@ const Scrap = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [searchId, setSearchId] = useState(id || '');
-
+    
     async function fetchMovies(searchId) {
         setLoading(true)
         const {data} =
@@ -17,7 +17,7 @@ const Scrap = () => {
         setLoading(false);
         console.log(data);
     }
-
+    
     function onSearch() {
         fetchMovies(searchId)
         console.log()
@@ -28,10 +28,10 @@ const Scrap = () => {
         }
     }
     useEffect(() => {
-
+        
         fetchMovies();
     }, []);
-
+    
   return (
     <>
     <div className="search__input">
