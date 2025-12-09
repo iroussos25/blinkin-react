@@ -31,8 +31,8 @@ const Footer = () => {
                                 link__hover-effect--red">Contact</a></li>
                             </ul>
                         </div>
-                                </div>
             
+                                </div>
   )
 }
 

@@ -16,7 +16,7 @@ const Searchbox = () => {
         setLoading(true)
         const {data} =
         await axios.get(`https://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
-        setMovies(data || []);
+        setMovies(data);
         setLoading(false);
         console.log (data);
     }
@@ -36,17 +36,24 @@ const Searchbox = () => {
         fetchMovies();
     }, []);
     return (
-        <div className="movie-card__container">
-            <div className="movie-card">
+      
+      <div className="movie-list">
 
-                <h3>Title</h3>
-                <img src={blinkin} alt="Movie Title" />
-                <p><b>Type:</b> Movie Type</p>
-                <p><b>Year:</b> Movie Year</p>
-                <p className='imdb__link'><b>imdbID:</b>Movie imdbID <a href=''></a>
+        <div className="movie-card__container">
+            {movies?.Search?.map((movie) => (
+                <div className="movie-card" key={movie.imdbID}>
+                <h3>{movie.Title}</h3>
+                <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+                <p><b>Type:</b> {movie.Type}</p>
+                <p><b>Year:</b> {movie.Year}</p>
+                <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
                 </p>
             </div>
-        </div>
+            ))}
+            </div>
+            </div>  
+           
+            
     )
 
     function handleSubmit(event) {

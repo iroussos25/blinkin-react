@@ -234,13 +234,20 @@ z-index: -20;
 
 .movie-card__container {
   padding: 2px 16px;
-}
+  height:100%;
+  width: calc(100%/4);
+align-items: center;
 
+}
+.movie-img {
+  height: 100%;
+  width: auto;
+}
 .movie-list{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 /*FOOTER*/
 
