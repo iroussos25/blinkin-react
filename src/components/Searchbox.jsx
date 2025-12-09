@@ -34,7 +34,7 @@ const Searchbox = () => {
     }
     useEffect(() => {
         
-        fetchMovies();
+        // fetchMovies();
     }, []);
     const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
     return (
@@ -43,7 +43,10 @@ const Searchbox = () => {
         {/* <div className="movie-card__container"> */}
             {movies?.Search?.map(({ imdbID, Title, Poster, Type, Year }) => (
   <div className="movie-card" key={imdbID}>
+    <div className="title-box">
+
     <h3>{Title}</h3>
+    </div>
     <img
       src={getPoster(Poster)}
       alt={Title}
@@ -82,11 +85,12 @@ const Searchbox = () => {
         event.preventDefault(); // stop the page refresh
         fetchMovies(searchId);
         // run your animation delay here if you want
-        fetchMovies();
+        // fetchMovies();
         setTimeout(() => {
             // run your search here
         }, 1400); // or whatever timing matches your animation
-    }
+    }  
+    
     return (
         
         
