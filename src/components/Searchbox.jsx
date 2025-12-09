@@ -60,59 +60,19 @@ const Searchbox = () => {
     ) 
     
     
-    
-    return (
-      <div className="movie-list">
-
-        {/* <div className="movie-card__container"> */}
-            {movies?.Search?.map(({ imdbID, Title, Poster, Type, Year }) => (
-  <div className="movie-card" key={imdbID}>
-    <div className="title-box">
-
-    <h3>{Title}</h3>
-    </div>
-    <img
-      src={getPoster(Poster)}
-      alt={Title}
-      className="movie-img"
-      onError={e => { e.currentTarget.src = no_image; }} // fallback if the URL 404s
-    />
-    <p><b>Type:</b> {Type}</p>
-    <p><b>Year:</b> {Year}</p>
-    <a
-      href={`https://www.imdb.com/title/${imdbID}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="imdb__link"
-    >
-      <b>imdbID:</b> {imdbID}
-    </a>
-  </div>
-))}
-            {/* {movies?.Search?.map((movie) => (
-                <div className="movie-card" key={movie.imdbID}>
-                <h3>{movie.Title}</h3>
-                <img src={movie.Poster || no_image }  alt={movie.Title} className='movie-img'/>
-                <p><b>Type:</b> {movie.Type}</p>
-                <p><b>Year:</b> {movie.Year}</p>
-                <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'><p className='imdb__link'><b>imdbID:</b>{movie.imdbID}</p></a>
-                
-            </div>
-            ))} */}
-            {/* </div> */}
-            // </div>  
-           
-            
-    )
-
     function handleSubmit(event) {
-        event.preventDefault(); // stop the page refresh
-        fetchMovies(searchId);
-        // run your animation delay here if you want
-        // fetchMovies();
-        setTimeout(() => {
-            // run your search here
-        }, 1400); // or whatever timing matches your animation
+        event.preventDefault(); 
+        
+        if (!searchId) return
+         fetchMovies(searchId);
+
+        
+       
+
+
+        // setTimeout(() => {
+        //     // run your search here
+        // }, 1400); // or whatever timing matches your animation
     }  
  
 
