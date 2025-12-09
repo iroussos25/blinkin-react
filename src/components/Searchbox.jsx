@@ -37,6 +37,30 @@ const Searchbox = () => {
         // fetchMovies();
     }, []);
     const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
+    
+      
+    return (
+        
+        
+        <motion.div
+        initial={{ opacity: 0, y: 500 }}
+        animate={{opacity:1, y:0}}
+        transition={{duration: 2, ease: 'easeInOut'}}
+        className='search__container'
+        >
+
+      <form action="" className="search__bar" onSubmit={handleSubmit}>
+                    <input type="text" id="search__input" placeholder="Search for movies..." value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}/>
+                    
+                        <SearchCoinButton />
+                    
+                </form>   
+    </motion.div>
+
+    ) 
+    
+    
+    
     return (
       <div className="movie-list">
 
@@ -90,24 +114,7 @@ const Searchbox = () => {
             // run your search here
         }, 1400); // or whatever timing matches your animation
     }  
-    
-    return (
-        
-        
-        <motion.div
-        initial={{ opacity: 0, y: 500 }}
-        animate={{opacity:1, y:0}}
-        transition={{duration: 2, ease: 'easeInOut'}}
-        className='search__container'
-        >
-
-      <form action="" className="search__bar" onSubmit={handleSubmit}>
-                    <input type="text" id="search__input" placeholder="Search for movies..." value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}/>
-                    
-                        <SearchCoinButton />
-                    
-                </form>   
-    </motion.div>
+ 
 
  // useEffect(() => {
         
@@ -133,7 +140,7 @@ const Searchbox = () => {
                
 
     
-)
+
 
   
 
