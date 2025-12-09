@@ -4,6 +4,7 @@ import SearchCoinButton from './SearchCoinButton'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import blinkin from '../assets/blinkin-Photoroom.png';
+import no_image from '../assets/no_image.jpg'
  
 
 const Searchbox = () => {
@@ -39,19 +40,19 @@ const Searchbox = () => {
       
       <div className="movie-list">
 
-        <div className="movie-card__container">
+        {/* <div className="movie-card__container"> */}
             {movies?.Search?.map((movie) => (
                 <div className="movie-card" key={movie.imdbID}>
                 <h3>{movie.Title}</h3>
-                <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+                <img src={movie.Poster || no_image }  alt={movie.Title} className='movie-img'/>
                 <p><b>Type:</b> {movie.Type}</p>
                 <p><b>Year:</b> {movie.Year}</p>
-                <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
+                <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'></a>
                 </p>
             </div>
             ))}
             </div>
-            </div>  
+            // </div>  
            
             
     )
@@ -60,7 +61,7 @@ const Searchbox = () => {
         event.preventDefault(); // stop the page refresh
         fetchMovies(searchId);
         // run your animation delay here if you want
-        
+        fetchMovies();
         setTimeout(() => {
             // run your search here
         }, 1400); // or whatever timing matches your animation
@@ -82,6 +83,30 @@ const Searchbox = () => {
                     
                 </form>   
     </motion.div>
+
+ // useEffect(() => {
+        
+    //     fetchMovies();
+    // }, []);
+    // return (
+      
+    // <div className="movie-list">
+            
+    //        <div className="movie-card__container">
+    //            {movies?.Search?.map((movie) => (
+    //                <div className="movie-card" key={movie.imdbID}>
+    //                <h3>{movie.Title}</h3>
+    //                <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+    //                <p><b>Type:</b> {movie.Type}</p>
+    //                <p><b>Year:</b> {movie.Year}</p>
+    //                <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
+    //               </p>
+    //            </div>
+    //            ))}
+    //            </div>
+    //            </div>  
+               
+
     
 )
 
