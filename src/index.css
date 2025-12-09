@@ -241,6 +241,8 @@ align-items: center;
 }
 .movie-img {
   width: 100%;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
 .movie-list{
   display: flex;
