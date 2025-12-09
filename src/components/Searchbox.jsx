@@ -67,6 +67,22 @@ const Searchbox = () => {
          fetchMovies(searchId);
 
         
+      
+    <div className="movie-list">
+            
+           <div className="movie-card__container">
+               {movies?.Search?.map((movie) => (
+                   <div className="movie-card" key={movie.imdbID}>
+                   <h3>{movie.Title}</h3>
+                   <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+                   <p><b>Type:</b> {movie.Type}</p>
+                   <p><b>Year:</b> {movie.Year}</p>
+                   <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
+                  </p>
+               </div>
+               ))}
+               </div>
+               </div>  
        
 
 
@@ -80,23 +96,7 @@ const Searchbox = () => {
         
     //     fetchMovies();
     // }, []);
-    // return (
-      
-    // <div className="movie-list">
-            
-    //        <div className="movie-card__container">
-    //            {movies?.Search?.map((movie) => (
-    //                <div className="movie-card" key={movie.imdbID}>
-    //                <h3>{movie.Title}</h3>
-    //                <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
-    //                <p><b>Type:</b> {movie.Type}</p>
-    //                <p><b>Year:</b> {movie.Year}</p>
-    //                <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
-    //               </p>
-    //            </div>
-    //            ))}
-    //            </div>
-    //            </div>  
+    //
                
 
     
