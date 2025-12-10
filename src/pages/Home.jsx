@@ -14,15 +14,14 @@ import Scrap from '../components/scrap'
 const Home = () => {
   return (
     <div className='background'>
-        <Header />
     <div className="search__container">
         
         <Textbox />
       
-      <Modal />
+      {/* <Modal /> */}
         <Searchbox />
+      
     </div>
-        <Footer />
       </div>
       
   )

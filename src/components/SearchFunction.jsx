@@ -1,3 +1,4 @@
+
 async function main() {
 //   const buttonEl = document.querySelector('#submit__button');
   const searchInput = document.querySelector('#search__input');
@@ -59,15 +60,16 @@ async function main() {
 
 
 function movieHTML(movie) {
-    
+//    return `
+    //    <MovieCard/>
   return `
-    <div class="movie-card__container">
-      <div class="movie-card">
+    <div className="movie-card__container">
+      <div className="movie-card">
         <h3>${movie.Title}</h3>
         <img src="${movie.Poster !== 'N/A' ? movie.Poster : './assets/no-image.jpg'}" alt="${movie.Title}" />
         <p><b>Type:</b> ${movie.Type}</p>
         <p><b>Year:</b> ${movie.Year}</p>
-        <p class="imdb__link">
+        <p className="imdb__link">
           <b>imdbID:</b> ${movie.imdbID} 
           <a href="https://www.imdb.com/title/${movie.imdbID}/" target="_blank">View on IMDb</a>
         </p>
