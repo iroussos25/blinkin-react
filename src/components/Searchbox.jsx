@@ -41,7 +41,7 @@ const Searchbox = () => {
       
     return (
         
-        
+        <>
         <motion.div
         initial={{ opacity: 0, y: 500 }}
         animate={{opacity:1, y:0}}
@@ -49,14 +49,35 @@ const Searchbox = () => {
         className='search__container'
         >
 
-      <form action="" className="search__bar" onSubmit={handleSubmit}>
-                    <input type="text" id="search__input" placeholder="Search for movies..." value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}/>
-                    
-                        <SearchCoinButton />
-                    
-                </form>   
-    </motion.div>
+<form action="" className="search__bar" onSubmit={handleSubmit}>
+    <input type="text" id="search__input" placeholder="Search for movies..." value={searchId} onChange={(event) => setSearchId(event.target.value)} onKeyPress={(event) => onSearchKeyPress(event.key)}/>
+    
+        <SearchCoinButton />
+    
+</form>   
+</motion.div>
+     
+ <div className="movie-list">
+            
+           <div className="movie-card__container">
+               {movies?.Search?.map((movie) => (
+                   <div className="movie-card" key={movie.imdbID}>
+                    <div className="titleBox">
 
+                   <h3>{movie.Title}</h3>
+                    </div>
+                   <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+                   <p><b>Type:</b> {movie.Type}</p>
+                   <p><b>Year:</b> {movie.Year}</p>
+                   <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'> <p className='imdb__link'><b>View on IMDb</b></p></a>
+                  
+               </div>
+               ))}
+               </div>
+               </div>  
+               </>
+   
+        
     ) 
     
     
@@ -67,22 +88,7 @@ const Searchbox = () => {
          fetchMovies(searchId);
 
         
-      
-    <div className="movie-list">
-            
-           <div className="movie-card__container">
-               {movies?.Search?.map((movie) => (
-                   <div className="movie-card" key={movie.imdbID}>
-                   <h3>{movie.Title}</h3>
-                   <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
-                   <p><b>Type:</b> {movie.Type}</p>
-                   <p><b>Year:</b> {movie.Year}</p>
-                   <p className='imdb__link'><b>imdbID:</b>{movie.imdbID} <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'>View on IMDb</a>
-                  </p>
-               </div>
-               ))}
-               </div>
-               </div>  
+ 
        
 
 

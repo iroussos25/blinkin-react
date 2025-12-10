@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
 }
 
 html {
@@ -147,7 +148,6 @@ z-index: 100;
 
 .search__container {
 width: 100%;
-min-height: 100vh;
 padding: 5%;
 background-position: center;
 background-size: cover;
@@ -232,6 +232,10 @@ z-index: -20;
 
 }
 
+.titleBox {
+  height: 58px;
+}
+
 .movie-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -240,6 +244,8 @@ z-index: -20;
   padding: 2px 16px;
   height:100%;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   
 }
 .movie-img {
