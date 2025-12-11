@@ -64,7 +64,7 @@
 
 
 .movie__link {
-  color: #242424;
+  color: #f60d0d;
 }
 
 .movie__img--wrapper {
@@ -130,11 +130,12 @@
 }
 
 .movie__selected--link {
-  color: #242424;
+  color: #fb0808;
 }
 
-.fa-arrow-left {
-  font-size: 30px;
+.faArrowLeft {
+  font-size: 80px;
+  color: red;
 }
 
 .movie__selected--title--top {

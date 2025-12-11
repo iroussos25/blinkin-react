@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft} from '@fortawesome/fontawesome-free'
 import React, { useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import blinkin from '../assets/blinkin-Photoroom.png'
@@ -40,7 +41,8 @@ return (
     <div className="row">
         <div className="movie__selected--top">
             <Link to="/" className="home__link">
-                <FontAwesomeIcon icon="arrow-left" />
+            <FontAwesomeIcon icon={faArrowLeft} />
+               Back To Results
             </Link>
         </div>
         <div className="movie__selected">
