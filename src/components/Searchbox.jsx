@@ -62,7 +62,7 @@ const Searchbox = () => {
           
 
         //    {/* <div className="movie-card__container">
-            //    {movies?.Search?.map((movie) => (
+               movies?.Search?.map(movie) => <MovieCard key={movie.imdbID} movie={movie}/>
             //        <div className="movie-card" key={movie.imdbID}>
             //         <div className="titleBox">
 
@@ -94,17 +94,10 @@ const Searchbox = () => {
        
 
 
-        // setTimeout(() => {
-        //     // run your search here
-        // }, 1400); // or whatever timing matches your animation
+       
     }  
  
 
- // useEffect(() => {
-        
-    //     fetchMovies();
-    // }, []);
-    //
                
 
     
@@ -118,8 +111,3 @@ const Searchbox = () => {
 export default Searchbox
 
 
-//Then your form looks like:
-
-// <form onSubmit={handleSubmit}>
-//   <SearchCoinButton />
-// </form>
