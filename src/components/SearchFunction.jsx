@@ -62,7 +62,7 @@ async function main() {
 
 function movieHTML(movie) {
    return 
-       <MovieCard/>
+        movies.map(movie=><MovieCard key={{movie.id} movie={movie}}/>)
   
 //     return `
 //     <div className="movie-card__container">
