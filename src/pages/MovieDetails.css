@@ -37,6 +37,9 @@
   max-width: 250px;
   transition: all 300ms ease;
 }
+.home__link{
+    color:red;
+}
 
 .movie__img--skeleton {
   width: 100%;
@@ -133,10 +136,7 @@
   color: #fb0808;
 }
 
-.faArrowLeft {
-  font-size: 80px;
-  color: red;
-}
+
 
 .movie__selected--title--top {
   margin-left: 10px;
