@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft} from '@fortawesome/fontawesome-free'
+import { faArrowLeft} from '@fortawesome/fontawesome-free-solid-svg-icons'
 import React, { useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import blinkin from '../assets/blinkin-Photoroom.png'
