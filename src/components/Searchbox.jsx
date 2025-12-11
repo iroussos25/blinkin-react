@@ -42,7 +42,7 @@ const Searchbox = () => {
       
     return (
         
-        // <>
+        <>
         <motion.div
         initial={{ opacity: 0, y: 500 }}
         animate={{opacity:1, y:0}}
@@ -57,12 +57,17 @@ const Searchbox = () => {
     
 </form>   
 </motion.div>
-     
+ <div className='movie-list'>
+
+     {movies?.Search?.map((movie) => <MovieCard key={movie.imdbID} movie={movie}/>)}
+ </div>
+
+     </>
 //  {/* <div className="movie-list"> */}
           
 
         //    {/* <div className="movie-card__container">
-               movies?.Search?.map(movie) => <MovieCard key={movie.imdbID} movie={movie}/>
+               
             //        <div className="movie-card" key={movie.imdbID}>
             //         <div className="titleBox">
 

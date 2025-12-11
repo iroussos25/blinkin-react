@@ -61,13 +61,13 @@ return (
                         {movie.Director}
                     </p>
                     <p className="movie__summary--starring">
-                        <b>Starring</b> {movie.Actors}                                
+                        <b>Starring:</b> {movie.Actors}                                
                         </p>
                     <p className="movie__summary--rating">
-                        Rating
+                        <b>Rated:</b> {movie.Rated}
                     </p>
                     <p className="movie__summary--genre">
-                        <b> Genre</b> {movie.Genre}
+                        <b> Genre:</b> {movie.Genre}
                     </p>
                     <a href={`https://www.imdb.com/title/${movie.imdbID}/`} target="_blank" rel="noreferrer">View on IMDb</a>
 

@@ -220,8 +220,6 @@ z-index: -20;
 }
 
  .movie-card {
-  background-color: #bca1a1;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   cursor: pointer;
   border-radius: 10px;
@@ -229,7 +227,23 @@ z-index: -20;
   width: 280px;
   margin: 4px;
     text-align: center;
-
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+background-color: #aaa; /* Fallback color */
+    background-image: linear-gradient(
+        45deg,
+        #888 0%, 
+        #eee 20%, 
+        #888 40%, 
+        #eee 60%, 
+        #888 80%, 
+        #eee 100%
+    );
+    background-size: 100% 100%; /* Ensure the gradient covers the whole card */
+    
+    /* Add a subtle reflection/shine effect on hover for extra polish */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .titleBox {
@@ -237,20 +251,20 @@ z-index: -20;
 }
 
 .movie-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0 30px  rgb(54, 11, 248, 1);
+  transform: scale(1.05);
 }
 
 .movie-card__container {
   padding: 2px 16px;
   height:100%;
   align-items: center;
-  display: flex;
   flex-wrap: wrap;
   
 }
 .movie-img {
-  width: 100%;
-  height: 270px;
+  width: auto;
+  height: 280px;
   /* overflow-clip-margin: content-box;
   overflow: clip; */
 }

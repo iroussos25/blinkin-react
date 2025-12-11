@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./SearchCoinButton.css";
-import main from "./SearchFunction";
 
 export default function SearchCoinButton({ onSearch }) {
   const [animation, setAnimation] = useState("landing"); // landing | idle | rising
