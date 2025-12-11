@@ -5,6 +5,7 @@ import axios from 'axios';
 import { data, useParams } from 'react-router-dom';
 import blinkin from '../assets/blinkin-Photoroom.png';
 import no_image from '../assets/no_image.jpg'
+import MovieCard from './MovieCard';
  
 
 const Searchbox = () => {
@@ -41,7 +42,7 @@ const Searchbox = () => {
       
     return (
         
-        <>
+        // <>
         <motion.div
         initial={{ opacity: 0, y: 500 }}
         animate={{opacity:1, y:0}}
@@ -57,25 +58,26 @@ const Searchbox = () => {
 </form>   
 </motion.div>
      
- <div className="movie-list">
-            
-           <div className="movie-card__container">
-               {movies?.Search?.map((movie) => (
-                   <div className="movie-card" key={movie.imdbID}>
-                    <div className="titleBox">
+//  {/* <div className="movie-list"> */}
+          
 
-                   <h3>{movie.Title}</h3>
-                    </div>
-                   <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
-                   <p><b>Type:</b> {movie.Type}</p>
-                   <p><b>Year:</b> {movie.Year}</p>
-                   <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'> <p className='imdb__link'><b>View on IMDb</b></p></a>
+        //    {/* <div className="movie-card__container">
+            //    {movies?.Search?.map((movie) => (
+            //        <div className="movie-card" key={movie.imdbID}>
+            //         <div className="titleBox">
+
+            //        <h3>{movie.Title}</h3>
+            //         </div>
+            //        <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
+            //        <p><b>Type:</b> {movie.Type}</p>
+            //        <p><b>Year:</b> {movie.Year}</p>
+            //        <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'> <p className='imdb__link'><b>View on IMDb</b></p></a>
                   
-               </div>
-               ))}
-               </div>
-               </div>  
-               </>
+            //    </div>
+            //    ))}
+            //    </div> */}
+            //    {/* </div>   */}
+            //    {/* </> */}
    
         
     ) 
