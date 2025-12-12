@@ -6,6 +6,13 @@ import ModalButton from './ModalButton';
 
 
 const Header = () => {
+function openMenu() {
+    document.body.classList += " menu--open";
+}
+
+function closeMenu() {
+    document.body.classList.remove("menu--open");
+}
     return (
         <div className="nav__background">
 
@@ -23,7 +30,29 @@ const Header = () => {
             <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
         </ul>
          
-        <ModalButton/>
+        <ModalButton />
+
+               <div className="menu__backdrop">
+                <button className="btn__menu btn__menu--close">
+                    <FontAwesomeIcon icon="times" />
+                </button>
+                <ul className="menu__links">
+                    <li className="menu__list">
+                        <Link to="/" className="menu__link">
+                        Home
+                        </Link>
+                         </li>
+                    <li className="menu__list">
+                        <Link to="/books" className="menu__link">
+                        Books</Link>
+                         </li>
+                    <li className="menu__list">
+                        <Link to="/cart" className="menu__link">
+                        Cart
+                        </Link>
+                         </li>
+                </ul>
+            </div>
     </div>
     </nav>
         </div>

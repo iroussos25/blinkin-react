@@ -4,8 +4,13 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import '../index.css'
 
 const ModalButton = () => {
+
+  function openMenu() {
+    document.body.classList += " menu--open";
+}
+
   return (
-    <div className='fa-bars'>
+    <div className='fa-bars' onClick={openMenu}>
       <FontAwesomeIcon icon={faBars} />
     </div>
   )
