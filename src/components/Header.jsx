@@ -3,12 +3,13 @@ import blinkin from '../assets/blinkin-Photoroom.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ModalButton from './ModalButton';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = () => {
-function openMenu() {
-    document.body.classList += " menu--open";
-}
+// function openMenu() {
+//     document.body.classList += " menu--open";
+// }
 
 function closeMenu() {
     document.body.classList.remove("menu--open");
@@ -34,7 +35,7 @@ function closeMenu() {
 
                <div className="menu__backdrop">
                 <button className="btn__menu btn__menu--close">
-                    <FontAwesomeIcon icon="times" />
+                    <FontAwesomeIcon icon={faX} />
                 </button>
                 <ul className="menu__links">
                     <li className="menu__list">

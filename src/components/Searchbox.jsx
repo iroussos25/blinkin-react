@@ -12,15 +12,14 @@ const Searchbox = () => {
     const { id } = useParams();
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [searchId, setSearchId] = useState( ''); 
+    const [searchId, setSearchId] = useState(''); 
     
     async function fetchMovies(searchId) {
-        setLoading(true)
-        const {data} =
+        setLoading(true);
+        const { data } =
         await axios.get(`https://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
         setMovies(data);
         setLoading(false);
-        console.log (data);
     }
     function onSearch() {
 
@@ -35,10 +34,16 @@ const Searchbox = () => {
     }
     useEffect(() => {
         
-        // fetchMovies();
     }, []);
     const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
-    
+    const savedResults = sessionStorage.getItem('lastSearchResults');
+    const savedId = sessionStorage.getItem('lastSearchId');
+    if (savedResults) {
+        setMovies(JSON.parse(savedResults));
+    }
+    if (savedId) {
+        setSearchId(savedId);
+    }
       
     return (
         
