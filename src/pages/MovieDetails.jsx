@@ -14,13 +14,13 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const navigate = useNavigate();
 
-const location = useLocation();
-const searchResults = location.state || {};
-console.log("All Search Results:", searchResults);
-console.log("Current Movie ID:", imdbID);
-if (searchResults) {
-    const currentMovie = searchResults.find(m=> m.imdbID ===imdbID)
-}
+// const location = useLocation();
+// const searchResults = location.state || {};
+// console.log("All Search Results:", searchResults);
+// console.log("Current Movie ID:", imdbID);
+// if (searchResults) {
+//     const currentMovie = searchResults.find(m=> m.imdbID ===imdbID)
+// }
 
 const handleGoBack = (event) => {
     event.preventDefault();
@@ -46,18 +46,18 @@ try {
 getPlot();
 }, [imdbID]);
 if (loading) return <div className="movies__body">Loading...</div>;
-if (error) return <div className="movies__body">Error: {error}</div>
+if (error) return <div className="movies__body">Error: {error}</div>;
 if (!movie) return null;
- const IMDB = movie.Ratings.find(r=> r.Source==="Internet Movie Database")?.Value
- const rotten = movie.Ratings.find(r=> r.Source==="Rotten Tomatoes")?.Value
- const meta = movie.Ratings.find(r => r.Source === "Metacritic")?.Value;
+ const IMDB = movie.Ratings?.find((r)=> r.Source === 'Internet Movie Database')?.Value
+ const rotten = movie.Ratings?.find((r)=> r.Source === 'Rotten Tomatoes')?.Value
+ const meta = movie.Ratings?.find((r) => r.Source === 'Metacritic')?.Value;
 return (
 <div className="movies__body">   
 <main className="movies__main">
 <div className="movies__container">
     <div className="row">
         <div className="movie__selected--top">
-            <a className="home__link" onClick={handleGoBack}>
+            <a href='#' className="home__link" onClick={handleGoBack}>
             <FontAwesomeIcon icon={faArrowLeft} />
                Back To Results
             </a>
@@ -70,9 +70,9 @@ return (
                 <h1 className="movie__selected--title">{movie.Title}</h1>
                 <h2 className="movie__selected--rating-title">Critics Ratings</h2>
                 <div className="critics-container">
-                <h3 className="movie__selected--rating"><b>Rotten Tomatoes:</b><span className='red'> {rotten||"N/A"} </span></h3> 
-                <h3 className="movie__selected--rating"> {' || IMDb: '}<span className='red'>{IMDB||"N/A"}</span></h3>
-                <h3 className="movie__selected--rating"> {' || Metacritic: '} <span className='red'>{meta||"N/A"}</span></h3>
+                <h3 className="movie__selected--rating"><b>Rotten Tomatoes:</b><span className='red'> {rotten || 'N/A'} </span></h3> 
+                <h3 className="movie__selected--rating"> {' || IMDb: '}<span className='red'>{IMDB || 'N/A'}</span></h3>
+                <h3 className="movie__selected--rating"> {' || Metacritic: '} <span className='red'>{meta || 'N/A'}</span></h3>
                 </div>
                 
                 <div className="movie__summary">

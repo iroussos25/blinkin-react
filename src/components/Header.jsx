@@ -2,6 +2,7 @@ import React from 'react'
 import blinkin from '../assets/blinkin-Photoroom.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ModalButton from './ModalButton';
 
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
             <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
         </ul>
          
-        
+        <ModalButton/>
     </div>
     </nav>
         </div>

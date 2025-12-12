@@ -18,11 +18,11 @@ const MovieCard = ({movie}) => {
   return (
 
    <div className="movie-card__container">
-        {movie.map((movie)=>(
-       <div className="movie-card" key={movie.imdbID} onClick={() =>handleMovieClick(movie)}>
+        
+       <div className="movie-card" key={movie.imdbID}>
 
          <h3>{movie.Title}</h3>
-         <img src={movie.Poster !== 'N/A' ? movie.Poster : noImage} alt="${movie.Title}"  className='movie-img' onError={(e) => e.target.src=noImage} />
+         <img src={movie.Poster !== 'N/A' ? movie.Poster : noImage} alt={movie.Title} className='movie-img' onError={(e) => e.target.src=noImage} />
 
          <p><b>Type:</b> {movie.Type}</p>
          <p><b>Year:</b> {movie.Year}</p>
@@ -34,7 +34,7 @@ const MovieCard = ({movie}) => {
           </Link>
          </p>
        </div>
-        ))}
+        
      </div>
     
   )
