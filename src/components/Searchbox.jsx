@@ -19,6 +19,8 @@ const Searchbox = () => {
         const { data } =
         await axios.get(`https://www.omdbapi.com/?s=${searchId}&apikey=279e89f2`);
         setMovies(data);
+        sessionStorage.setItem('lastSearchResults', JSON.stringify(data));
+        sessionStorage.setItem('lastSearchId', searchId);
         setLoading(false);
     }
     function onSearch() {
@@ -33,10 +35,7 @@ const Searchbox = () => {
         }
     }
     useEffect(() => {
-        
-    }, []);
-    const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
-    const savedResults = sessionStorage.getItem('lastSearchResults');
+        const savedResults = sessionStorage.getItem('lastSearchResults');
     const savedId = sessionStorage.getItem('lastSearchId');
     if (savedResults) {
         setMovies(JSON.parse(savedResults));
@@ -44,6 +43,10 @@ const Searchbox = () => {
     if (savedId) {
         setSearchId(savedId);
     }
+        
+    }, []);
+    const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
+    
       
     return (
         
