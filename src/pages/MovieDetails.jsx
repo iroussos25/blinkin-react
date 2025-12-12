@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import blinkin from '../assets/blinkin-Photoroom.png'
 import './MovieDetails.css'
 
@@ -12,6 +12,11 @@ const { imdbID } = useParams();
 const [movie, setMovie] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+const navigate = useNavigate();
+const handleGoBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+};
 useEffect(() => {
 async function getPlot() {
 
@@ -34,24 +39,32 @@ getPlot();
 if (loading) return <div className="movies__body">Loading...</div>;
 if (error) return <div className="movies__body">Error: {error}</div>
 if (!movie) return null;
+ const IMDB = movie.Ratings.find(r=> r.Source==="Internet Movie Database")?.Value
+ const rotten = movie.Ratings.find(r=> r.Source==="Rotten Tomatoes")?.Value
+ const meta = movie.Ratings.find(r => r.Source === "Metacritic")?.Value;
 return (
 <div className="movies__body">   
 <main className="movies__main">
 <div className="movies__container">
     <div className="row">
         <div className="movie__selected--top">
-            <Link to="/" className="home__link">
+            <a className="home__link" onClick={handleGoBack}>
             <FontAwesomeIcon icon={faArrowLeft} />
                Back To Results
-            </Link>
+            </a>
         </div>
         <div className="movie__selected">
             <figure className="movie__selected--figure">
                 <img src={movie.Poster !== 'N/A' ? movie.Poster : blinkin} alt={movie.Title} className="movie__selected--img"/>
             </figure>
             <div className="movie__selected--description">
-                <h2 className="movie__selected--title">{movie.Title}</h2>
-                <h2 className="movie__selected--rating">{movie.imdbRating}</h2>
+                <h1 className="movie__selected--title">{movie.Title}</h1>
+                <h2 className="movie__selected--rating-title">Critics Ratings</h2>
+                <div className="critics-container">
+                <h3 className="movie__selected--rating"><b>Rotten Tomatoes:</b><span className='red'> {rotten||"N/A"} </span></h3> 
+                <h3 className="movie__selected--rating"> {' || IMDb: '}<span className='red'>{IMDB||"N/A"}</span></h3>
+                <h3 className="movie__selected--rating"> {' || Metacritic: '} <span className='red'>{meta||"N/A"}</span></h3>
+                </div>
                 
                 <div className="movie__summary">
                     <h3 className="movie__summary--title">

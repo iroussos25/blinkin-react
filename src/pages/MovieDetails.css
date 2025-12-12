@@ -39,6 +39,7 @@
 }
 .home__link{
     color:red;
+    cursor: pointer;
 }
 
 .movie__img--skeleton {
@@ -125,7 +126,7 @@
 
 .movie__selected--top {
   padding: 0 24px;
-  margin-bottom: 8px;
+  margin-top: 100px;
   font-size: 32px;
   color: #242424;
   display: flex;
@@ -136,7 +137,13 @@
   color: #fb0808;
 }
 
+.critics-container {
+    display: flex;
+}
 
+.red {
+    color:Red
+}
 
 .movie__selected--title--top {
   margin-left: 10px;

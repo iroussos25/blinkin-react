@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "../index.css"
 import noImage from '../assets/no_image.jpg';
 
 
 const MovieCard = ({movie}) => {
+
+  // Navigate(\/movie/${id, { state: { searchResults: movies}}})
+
   return (
 
    <div className="movie-card__container">
