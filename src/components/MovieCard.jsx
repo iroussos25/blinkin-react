@@ -1,17 +1,26 @@
 import React from 'react'
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../index.css"
 import noImage from '../assets/no_image.jpg';
 
 
 const MovieCard = ({movie}) => {
+  
+  const navigate = useNavigate();
+  const handleMovieClick = (movie) => {
 
-  // Navigate(\/movie/${id, { state: { searchResults: movies}}})
+    navigate(`/movie/${movie.imdbID}`,
+    { state: { searchResults: movie }})
+  }
+  
+
 
   return (
 
    <div className="movie-card__container">
-       <div className="movie-card">
+        {movie.map((movie)=>(
+       <div className="movie-card" key={movie.imdbID} onClick={() =>handleMovieClick(movie)}>
+
          <h3>{movie.Title}</h3>
          <img src={movie.Poster !== 'N/A' ? movie.Poster : noImage} alt="${movie.Title}"  className='movie-img' onError={(e) => e.target.src=noImage} />
 
@@ -25,6 +34,7 @@ const MovieCard = ({movie}) => {
           </Link>
          </p>
        </div>
+        ))}
      </div>
     
   )

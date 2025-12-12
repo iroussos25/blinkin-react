@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState} from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import blinkin from '../assets/blinkin-Photoroom.png'
 import './MovieDetails.css'
 
@@ -13,6 +13,15 @@ const [movie, setMovie] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const navigate = useNavigate();
+
+const location = useLocation();
+const searchResults = location.state || {};
+console.log("All Search Results:", searchResults);
+console.log("Current Movie ID:", imdbID);
+if (searchResults) {
+    const currentMovie = searchResults.find(m=> m.imdbID ===imdbID)
+}
+
 const handleGoBack = (event) => {
     event.preventDefault();
     navigate(-1);
