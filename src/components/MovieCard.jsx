@@ -17,8 +17,9 @@ const MovieCard = ({movie}) => {
 
   return (
 
-   <div className="movie-card__container">
-        
+    
+    <div className="movie-card__container">
+     <Link to={`/moviedetails/${movie.imdbID}`}>
        <div className="movie-card" key={movie.imdbID}>
 
          <h3>{movie.Title}</h3>
@@ -27,13 +28,8 @@ const MovieCard = ({movie}) => {
          <p><b>Type:</b> {movie.Type}</p>
          <p><b>Year:</b> {movie.Year}</p>
 
-         <p className="imdb__link">
-            
-           <Link to={`/moviedetails/${movie.imdbID}`}>
-            View Details
+             </div>
           </Link>
-         </p>
-       </div>
         
      </div>
     

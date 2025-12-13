@@ -70,9 +70,9 @@ return (
                 <h1 className="movie__selected--title">{movie.Title}</h1>
                 <h2 className="movie__selected--rating-title">Critics Ratings</h2>
                 <div className="critics-container">
-                <h3 className="movie__selected--rating"><b>Rotten Tomatoes:</b><span className='red'> {rotten || 'N/A'} </span></h3> 
-                <h3 className="movie__selected--rating"> {' || IMDb: '}<span className='red'>{IMDB || 'N/A'}</span></h3>
-                <h3 className="movie__selected--rating"> {' || Metacritic: '} <span className='red'>{meta || 'N/A'}</span></h3>
+                <h3 className="movie__selected--rating-1"><b>Rotten Tomatoes:</b><span className='red'> {rotten || 'N/A'} </span></h3> 
+                <h3 className="movie__selected--rating-2"> {' || IMDb: '}<span className='red'>{IMDB || 'N/A'}</span></h3>
+                <h3 className="movie__selected--rating-3"> {' || Metacritic: '} <span className='red'>{meta || 'N/A'}</span></h3>
                 </div>
                 
                 <div className="movie__summary">

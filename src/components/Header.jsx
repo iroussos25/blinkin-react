@@ -34,7 +34,7 @@ function closeMenu() {
         <ModalButton />
 
                <div className="menu__backdrop">
-                <button className="btn__menu btn__menu--close">
+                <button className="btn__menu btn__menu--close" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faX} />
                 </button>
                 <ul className="menu__links">
