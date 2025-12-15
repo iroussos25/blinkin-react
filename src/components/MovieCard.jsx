@@ -1,24 +1,45 @@
-import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react'
+import { Link } from "react-router-dom";
 import "../index.css"
 import noImage from '../assets/no_image.jpg';
 
 
 const MovieCard = ({movie}) => {
   
-  const navigate = useNavigate();
-  const handleMovieClick = (movie) => {
+  // const navigate = useNavigate();
+  // const handleMovieClick = (movie) => {
 
-    navigate(`/movie/${movie.imdbID}`,
-    { state: { searchResults: movie }})
+  //   navigate(`/movie/${movie.imdbID}`,
+  //   { state: { searchResults: movie }})
+  // }
+          const [movie, setMovie] = useState();
+
+        const mountedRef = useRef(true);
+        
+    useEffect(() => {
+        const image = new Image();
+        image.src = movie.Poster;
+        image.onload = () => {
+            setTimeout(() => {
+                if (mountedRef.current){
+
+                    setMovie(image);
+                }
+        }, 300);
+        }
+
+
+  return () => {
+
+  mountedRef.current = false;
   }
-  
-
-
-  return (
+})
+return (
 
     
     <div className="movie-card__container">
+      movie ? (
+        <>
      <Link to={`/moviedetails/${movie.imdbID}`}>
        <div className="movie-card" key={movie.imdbID}>
 
@@ -31,10 +52,18 @@ const MovieCard = ({movie}) => {
              </div>
           </Link>
         
-     </div>
+        </>
     
+  ) : (
+
+     <> 
+   
+<div className="mpvie-card--skeleton"></div>
+    </>
   )
 
-}
+     </div>
+);
+};
 
 export default MovieCard

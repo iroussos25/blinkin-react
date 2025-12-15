@@ -21,7 +21,7 @@ const handleGoBack = (event) => {
     event.preventDefault();
     sessionStorage.removeItem("lastSearchResults");
     sessionStorage.removeItem("lastSearchId");
-    navigate(-1);
+    navigate('/');
 };
     return (
         <div className="nav__background">
