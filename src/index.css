@@ -196,15 +196,7 @@ justify-content: top;
     padding: 12px 20px;
 }
 
-/* .search__bar button:hover {
-    color: #fff;
-    background: #5e2c2c;
-} */
 
-/* .search__bar button:active {
-    transform: scale(0.95);
-    background: #e60a0a;
-} */ */
 
 .fa-spinner {
 animation: spinner 750ms infinite;
@@ -229,7 +221,7 @@ z-index: -20;
   margin: 4px;
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-background-color: #aaa; /* Fallback color */
+background-color: #aaa; 
     background-image: linear-gradient(
         45deg,
         #888 0%, 
@@ -239,9 +231,8 @@ background-color: #aaa; /* Fallback color */
         #888 80%, 
         #eee 100%
     );
-    background-size: 100% 100%; /* Ensure the gradient covers the whole card */
+    background-size: 100% 100%; 
     
-    /* Add a subtle reflection/shine effect on hover for extra polish */
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -284,15 +275,14 @@ background-color: #aaa; /* Fallback color */
 .movie-img {
   width: auto;
   height: 280px;
-  /* overflow-clip-margin: content-box;
-  overflow: clip; */
+  
 }
 .movie-list{
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
 }
-/*FOOTER*/
+
 
 footer{
     background-color: #242424;
@@ -389,7 +379,6 @@ footer{
     }
 }
 
-/*TABLETS, LARGE PHONES*/
 @media (max-width: 768px) {
     .nav__container {
         padding: 0 12px;
@@ -418,7 +407,6 @@ footer{
 
 
 
-/*SMALL PHONES*/
 @media (max-width: 630px) {
     .nav__list {
         flex-direction: column;

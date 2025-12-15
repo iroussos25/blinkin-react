@@ -51,25 +51,19 @@ const handleGoBack = (event) => {
                 </button>
                 <ul className="menu__links">
                     
-                    <li className="menu__list">
-                        <Link to="/" className="menu__link" onClick={closeMenu}>
+                    <li className="menu__list menu__link">
+                        <Link to="/" onClick={closeMenu}>
                         Home
                         </Link>
                          </li>
-                    <li className="menu__list">
-                        <Link to="/" className="menu__link--nope">
+                    <li className="menu__list menu__link--nope">
                         About
-                        </Link>
                          </li>
-                    <li className="menu__list">
-                        <Link to="/" className="menu__link--nope">
+                    <li className="menu__list menu__link">
                         Services
-                        </Link>
                          </li>
-                    <li className="menu__list">
-                        <Link to="/" className="menu__link--nope">
+                    <li className="menu__list menu__link">
                         Contact
-                        </Link>
                          </li>
                 </ul>
             </div>
