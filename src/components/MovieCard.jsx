@@ -23,7 +23,7 @@ const MovieCard = ({movie}) => {
                     setImg(image);
                     setLoading(false);
                 }
-        }, 3000);
+        }, 2000);
         };
 
         image.onerror = ()=>{
