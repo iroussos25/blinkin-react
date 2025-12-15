@@ -48,13 +48,16 @@ const handleGoBack = (event) => {
                     <FontAwesomeIcon icon={faX} />
                 </button>
                 <ul className="menu__links">
-                    <li className="menu__list" onClick={handleGoBack}>
-                      Home
-                        
+                    
+                    <li className="menu__list">
+                        <Link to="/" className="menu__link" onClick={closeMenu}>
+                        Home
+                        </Link>
                          </li>
                     <li className="menu__list">
-                        <Link to="/books" className="menu__link">
-                        Books</Link>
+                        <Link to="/cart" className="menu__link">
+                        Cart
+                        </Link>
                          </li>
                     <li className="menu__list">
                         <Link to="/cart" className="menu__link">

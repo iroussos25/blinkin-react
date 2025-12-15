@@ -12,7 +12,7 @@ const MovieCard = ({movie}) => {
   //   navigate(`/movie/${movie.imdbID}`,
   //   { state: { searchResults: movie }})
   // }
-          const [movie, setMovie] = useState();
+          const [img, setImg] = useState();
 
         const mountedRef = useRef(true);
         
@@ -23,7 +23,7 @@ const MovieCard = ({movie}) => {
             setTimeout(() => {
                 if (mountedRef.current){
 
-                    setMovie(image);
+                    setImg(image);
                 }
         }, 300);
         }
@@ -38,7 +38,7 @@ return (
 
     
     <div className="movie-card__container">
-      movie ? (
+      img ? (
         <>
      <Link to={`/moviedetails/${movie.imdbID}`}>
        <div className="movie-card" key={movie.imdbID}>
