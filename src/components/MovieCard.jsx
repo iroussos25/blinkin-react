@@ -6,17 +6,13 @@ import noImage from '../assets/no_image.jpg';
 
 const MovieCard = ({movie}) => {
   
-  // const navigate = useNavigate();
-  // const handleMovieClick = (movie) => {
-
-  //   navigate(`/movie/${movie.imdbID}`,
-  //   { state: { searchResults: movie }})
-  // }
+  
           const [img, setImg] = useState();
 
         const mountedRef = useRef(true);
         
     useEffect(() => {
+      mountedRef.current = true;
         const image = new Image();
         image.src = movie.Poster;
         image.onload = () => {
