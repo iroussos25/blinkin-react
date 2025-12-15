@@ -1,6 +1,6 @@
 import React from 'react'
 import blinkin from '../assets/blinkin-Photoroom.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ModalButton from './ModalButton';
 import { faX } from '@fortawesome/free-solid-svg-icons';
@@ -11,9 +11,18 @@ const Header = () => {
 //     document.body.classList += " menu--open";
 // }
 
+
 function closeMenu() {
     document.body.classList.remove("menu--open");
 }
+const navigate = useNavigate();
+
+const handleGoBack = (event) => {
+    event.preventDefault();
+    sessionStorage.removeItem("lastSearchResults");
+    sessionStorage.removeItem("lastSearchId");
+    navigate(-1);
+};
     return (
         <div className="nav__background">
 
@@ -25,7 +34,8 @@ function closeMenu() {
     <div className="list__container">
         <ul className='nav__list'>
             
-            <li className='nav__link link__hover-effect link__hover-effect--red'>Home</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red' onClick={handleGoBack}>Home</li>
+            
             <li className='nav__link link__hover-effect link__hover-effect--red'>About</li>
             <li className='nav__link link__hover-effect link__hover-effect--red'>Services</li>
             <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
@@ -38,10 +48,9 @@ function closeMenu() {
                     <FontAwesomeIcon icon={faX} />
                 </button>
                 <ul className="menu__links">
-                    <li className="menu__list">
-                        <Link to="/" className="menu__link">
-                        Home
-                        </Link>
+                    <li className="menu__list" onClick={handleGoBack}>
+                      Home
+                        
                          </li>
                     <li className="menu__list">
                         <Link to="/books" className="menu__link">

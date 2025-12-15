@@ -476,5 +476,14 @@ footer{
     justify-content: center;
 
 }
+.movie__selected {
+  flex-direction: column;
+  align-items: center;
+}
+.movie__selected--description {
+  width: 100%;
+  align-items: center;
+
+}
 
 }

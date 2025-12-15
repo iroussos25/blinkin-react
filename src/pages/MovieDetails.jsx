@@ -14,18 +14,8 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const navigate = useNavigate();
 
-// const location = useLocation();
-// const searchResults = location.state || {};
-// console.log("All Search Results:", searchResults);
-// console.log("Current Movie ID:", imdbID);
-// if (searchResults) {
-//     const currentMovie = searchResults.find(m=> m.imdbID ===imdbID)
-// }
 
-const handleGoBack = (event) => {
-    event.preventDefault();
-    navigate(-1);
-};
+
 useEffect(() => {
 async function getPlot() {
 
@@ -57,10 +47,12 @@ return (
 <div className="movies__container">
     <div className="row">
         <div className="movie__selected--top">
-            <a href='#' className="home__link" onClick={handleGoBack}>
+           <Link to={'/'}>
+            <a href='#' className="home__link">
             <FontAwesomeIcon icon={faArrowLeft} />
                Back To Results
             </a>
+           </Link>
         </div>
         <div className="movie__selected">
             <figure className="movie__selected--figure">

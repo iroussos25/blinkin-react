@@ -168,3 +168,8 @@
 
 
 /*Smaller screens*/
+@media (max-width: 1000px) {
+    .movie__selected--rating-1, .movie__selected--rating-3{
+        display: none;
+    }
+}
