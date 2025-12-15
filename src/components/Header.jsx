@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ModalButton from './ModalButton';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
-
+function TextAlert() {
+    alert("Not yet implemented")
+}
 const Header = () => {
 // function openMenu() {
 //     document.body.classList += " menu--open";
@@ -23,6 +25,8 @@ const handleGoBack = (event) => {
     sessionStorage.removeItem("lastSearchId");
     navigate('/');
 };
+
+
     return (
         <div className="nav__background">
 
@@ -36,9 +40,9 @@ const handleGoBack = (event) => {
             
             <li className='nav__link link__hover-effect link__hover-effect--red' onClick={handleGoBack}>Home</li>
             
-            <li className='nav__link link__hover-effect link__hover-effect--red '>About</li>
-            <li className='nav__link link__hover-effect link__hover-effect--red'>Services</li>
-            <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red' onClick={TextAlert}>About</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red' onClick={TextAlert}>Services</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red' onClick={TextAlert}>Contact</li>
         </ul>
          
         <ModalButton />
