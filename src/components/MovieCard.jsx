@@ -58,7 +58,7 @@ return (
 
      <> 
    
-<div className="mpvie-card--skeleton"></div>
+<div className="movie-card--skeleton"></div>
     </>
   )
 
