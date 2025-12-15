@@ -3,8 +3,6 @@ import React, {useEffect, useState} from 'react'
 import SearchCoinButton from './SearchCoinButton'
 import axios from 'axios';
 import { data, useParams } from 'react-router-dom';
-import blinkin from '../assets/blinkin-Photoroom.png';
-import no_image from '../assets/no_image.jpg'
 import MovieCard from './MovieCard';
  
 
@@ -35,17 +33,20 @@ const Searchbox = () => {
         }
     }
     useEffect(() => {
-        const savedResults = sessionStorage.getItem('lastSearchResults');
+    const fromBack = sessionStorage.getItem('fromBackLink');
+    const savedResults = sessionStorage.getItem('lastSearchResults');
     const savedId = sessionStorage.getItem('lastSearchId');
-    if (savedResults) {
+    if (fromBack && savedResults && savedId) {
         setMovies(JSON.parse(savedResults));
-    }
-    if (savedId) {
         setSearchId(savedId);
+        sessionStorage.removeItem('fromBackLink');
+    } else {
+    sessionStorage.clear();
+    setMovies([]);
+    setSearchId('');
     }
-        
+
     }, []);
-    const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
     
       
     return (
@@ -71,27 +72,7 @@ const Searchbox = () => {
  </div>
 
      </>
-//  {/* <div className="movie-list"> */}
-          
 
-        //    {/* <div className="movie-card__container">
-               
-            //        <div className="movie-card" key={movie.imdbID}>
-            //         <div className="titleBox">
-
-            //        <h3>{movie.Title}</h3>
-            //         </div>
-            //        <img src={movie.Poster} alt={movie.Title} className='movie-img'/>
-            //        <p><b>Type:</b> {movie.Type}</p>
-            //        <p><b>Year:</b> {movie.Year}</p>
-            //        <a href={`https://www.imdb.com/title/${movie.imdbID}`} target='blank'> <p className='imdb__link'><b>View on IMDb</b></p></a>
-                  
-            //    </div>
-            //    ))}
-            //    </div> */}
-            //    {/* </div>   */}
-            //    {/* </> */}
-   
         
     ) 
     
@@ -101,23 +82,8 @@ const Searchbox = () => {
         
         if (!searchId) return
          fetchMovies(searchId);
-
-        
- 
-       
-
-
        
     }  
- 
-
-               
-
-    
-
-
-  
-
 
 }
 
