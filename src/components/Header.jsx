@@ -36,7 +36,7 @@ const handleGoBack = (event) => {
             
             <li className='nav__link link__hover-effect link__hover-effect--red' onClick={handleGoBack}>Home</li>
             
-            <li className='nav__link link__hover-effect link__hover-effect--red'>About</li>
+            <li className='nav__link link__hover-effect link__hover-effect--red '>About</li>
             <li className='nav__link link__hover-effect link__hover-effect--red'>Services</li>
             <li className='nav__link link__hover-effect link__hover-effect--red'>Contact</li>
         </ul>
@@ -55,13 +55,18 @@ const handleGoBack = (event) => {
                         </Link>
                          </li>
                     <li className="menu__list">
-                        <Link to="/cart" className="menu__link">
-                        Cart
+                        <Link to="/" className="menu__link--nope">
+                        About
                         </Link>
                          </li>
                     <li className="menu__list">
-                        <Link to="/cart" className="menu__link">
-                        Cart
+                        <Link to="/" className="menu__link--nope">
+                        Services
+                        </Link>
+                         </li>
+                    <li className="menu__list">
+                        <Link to="/" className="menu__link--nope">
+                        Contact
                         </Link>
                          </li>
                 </ul>

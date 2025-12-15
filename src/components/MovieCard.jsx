@@ -7,12 +7,13 @@ import noImage from '../assets/no_image.jpg';
 const MovieCard = ({movie}) => {
   
   
-          const [img, setImg] = useState();
-
+          const [img, setImg] = useState(null);
+        const [loading, setLoading] = useState(true);
         const mountedRef = useRef(true);
         
     useEffect(() => {
       mountedRef.current = true;
+      setLoading(true);
         const image = new Image();
         image.src = movie.Poster;
         image.onload = () => {
@@ -20,22 +21,33 @@ const MovieCard = ({movie}) => {
                 if (mountedRef.current){
 
                     setImg(image);
+                    setLoading(false);
                 }
-        }, 300);
-        }
+        }, 3000);
+        };
 
+        image.onerror = ()=>{
+          if (mountedRef.current) {
+            setLoading(false);
+          }
+        };
 
-  return () => {
+return () => {
+mountedRef.current = false;
+};
+    }, [movie.Poster]);
 
-  mountedRef.current = false;
-  }
-})
-return (
-
+    return (
     
     <div className="movie-card__container">
-      img ? (
-        <>
+      {loading ? (
+        <div className="movie-card--skeleton">
+          <div className="skeleton-title"></div>
+          <div className="skeleton-image"></div>
+          <div className="skeleton-text"></div>
+          <div className="skeleton-text"></div>
+        </div>
+      ) : (
      <Link to={`/moviedetails/${movie.imdbID}`}>
        <div className="movie-card" key={movie.imdbID}>
 
@@ -48,17 +60,9 @@ return (
              </div>
           </Link>
         
-        </>
-    
-  ) : (
-
-     <> 
-   
-<div className="movie-card--skeleton"></div>
-    </>
-  )
-
-     </div>
+      )}
+    </div>
+ 
 );
 };
 
