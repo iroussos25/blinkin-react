@@ -14,9 +14,9 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const navigate = useNavigate();
 
-sessionStorage.setItem('fromBackLink', 'true')
 
 useEffect(() => {
+    sessionStorage.setItem('fromBackLink', 'true')
 async function getPlot() {
 
 try {

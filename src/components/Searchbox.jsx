@@ -81,16 +81,13 @@ const Searchbox = () => {
     
     function handleSubmit(event) {
         event.preventDefault(); 
-        
-        if (!searchId) return {
-            alert('Please enter a search term');
-            return;
+        if (!searchId){
+        alert('Please enter a search term');
+        return;
+
         }
          fetchMovies(searchId);
-   
-
-
-       
+          
     }  
  
 
