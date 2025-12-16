@@ -41,12 +41,13 @@ const Searchbox = () => {
         setSearchId(savedId);
         sessionStorage.removeItem('fromBackLink');
     } else {
-    sessionStorage.clear();
     setMovies([]);
     setSearchId('');
     }
-
+    
+        
     }, []);
+    const getPoster = url => (url && url !== 'N/A' ? url : '/img/no_image.png');
     
       
     return (
@@ -73,6 +74,7 @@ const Searchbox = () => {
 
      </>
 
+   
         
     ) 
     
@@ -80,10 +82,25 @@ const Searchbox = () => {
     function handleSubmit(event) {
         event.preventDefault(); 
         
-        if (!searchId) return
+        if (!searchId) return {
+            alert('Please enter a search term');
+            return;
+        }
          fetchMovies(searchId);
+   
+
+
        
     }  
+ 
+
+               
+
+    
+
+
+  
+
 
 }
 

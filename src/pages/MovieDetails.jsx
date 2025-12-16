@@ -21,7 +21,7 @@ async function getPlot() {
 
 try {
     const res = await fetch( 
-        `http://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=${API_KEY}`);
+        `https://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=${API_KEY}`);
         const data = await res.json();
         if (data.Response === 'False') {
             throw new Error(data.Error || 'Movie not found');
