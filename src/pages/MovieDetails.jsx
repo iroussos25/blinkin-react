@@ -48,10 +48,8 @@ return (
     <div className="row">
         <div className="movie__selected--top">
            <Link to={'/'}>
-            <a href='#' className="home__link">
             <FontAwesomeIcon icon={faArrowLeft} />
                Back To Results
-            </a>
            </Link>
         </div>
         <div className="movie__selected">
