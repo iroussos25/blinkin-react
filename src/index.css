@@ -107,7 +107,7 @@ p {
 .nav__container {
 width: 100%;
 max-width: 1200px;
-min-width: 100vh;
+min-width: 100vw;
 padding: 0 24px;
 display: flex;
 justify-content: space-between;
